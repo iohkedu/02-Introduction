@@ -1,7 +1,0 @@
-flags: {}
-nix:
-  enable: false
-packages:
-- .
-extra-deps: []
-resolver: lts-13.2
