@@ -1,3 +1,6 @@
 cradle:
   cabal:
-    component: "lib:introduction"
+    - path: "./src"
+      component: "lib:introduction"
+    - path: "./test"
+      component: "test:introduction-test"
