@@ -353,11 +353,6 @@ propBalancesChain7 = and [ propBalancesChain1
                          , propBalancesChain6
                          ]
 
-propValidBalancesChain3 :: Bool
-propValidBalancesChain3 = and [ propValidBalancesChain1
-                              , propValidBalancesChain2
-                              ]
-
 -- Task Chains-16.
 --
 -- Given an integer chain, interpret it as a balances chain
@@ -374,6 +369,11 @@ propValidBalancesChain1 =
 propValidBalancesChain2 :: Bool
 propValidBalancesChain2 =
   not (validBalancesChain chain6)
+
+propValidBalancesChain3 :: Bool
+propValidBalancesChain3 = and [ propValidBalancesChain1
+                              , propValidBalancesChain2
+                              ]
 
 -- Task Chains-17.
 --
@@ -406,8 +406,28 @@ replicateChain = error "TODO: implement replicateChain"
 --
 -- Implement a function that gives you the prefix of the
 -- given length of the given chain. If the chain is too short,
--- the entire chain is returned. If the given length is negative,
+-- the entire chain is returned. If the given length is zero or negative,
 -- return the genesis block only.
 
 cutPrefix :: Int -> Chain txs -> Chain txs
 cutPrefix = error "TODO: implement cutPrefix"
+
+propCutPrefix1 :: Bool
+propCutPrefix1 = cutPrefix 1 chain2 == chain1
+
+propCutPrefix2 :: Bool
+propCutPrefix2 = cutPrefix 2 chain2 == chain2
+
+propCutPrefix3 :: Bool
+propCutPrefix3 = cutPrefix 0 chain3 == GenesisBlock
+
+propCutPrefix4 :: Bool
+propCutPrefix4 = cutPrefix (-7) chain1 == GenesisBlock
+
+propCutPrefix5 :: Bool
+propCutPrefix5 = and [ propCutPrefix1
+                     , propCommonPrefix2
+                     , propCommonPrefix3
+                     , propCommonPrefix4
+                     ]
+
