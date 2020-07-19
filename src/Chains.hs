@@ -50,7 +50,7 @@ chains = [chain1, chain2, chain3, chain4]
 -- Compute the length of a 'Chain'.
 
 lengthChain :: Chain txs -> Int
-lengthChain GenesisBlock = 0
+lengthChain = error "TODO: implement lengthChain"
 
 propLengthChain1 :: Bool
 propLengthChain1 = lengthChain chain1 == 1
@@ -158,9 +158,11 @@ propValidChain2 =
 -- of the second. If two chains are equal, they still count
 -- as a prefix of each other.
 --
--- TODO: If you want to solve this in an efficient way,
--- it is actually much more tricky than the other exercises
--- up to this point. The length version is less obvious.
+-- HINT: This one is a bit tricky.
+-- Try to think about which cases are required. Use
+-- equality of chains where appropriate. Do not worry about
+-- performance or doing too much work. If all fails, skip
+-- to task 9.
 
 isPrefixOf :: Eq txs => Chain txs -> Chain txs -> Bool
 isPrefixOf = error "TODO: implement isPrefixOf"
