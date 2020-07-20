@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Cabal autograding",
+      "setup": "export HOME=/home/runner",
+      "run": "export HOME=/home/runner;env; ghc --version; cabal --version; cabal v2-build; cabal v2-test all",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 100
+    }
+  ]
+}
