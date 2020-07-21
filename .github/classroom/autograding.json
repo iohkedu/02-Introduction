@@ -2,8 +2,8 @@
   "tests": [
     {
       "name": "Cabal autograding",
-      "setup": "export HOME=/home/runner",
-      "run": "export HOME=/home/runner;env; ghc --version; cabal --version; cabal v2-build; cabal v2-test all",
+      "setup": "",
+      "run": "export HOME=/home/runner; PATH=/opt/ghc/bin:$PATH; env; ghc --version; cabal --version; cabal update; cabal test",
       "input": "",
       "output": "",
       "comparison": "included",
