@@ -53,3 +53,8 @@ main = hspec $ do
     describe "validBalancesChain" $ do
         it "satisfies propValidBalancesChain1" propValidBalancesChain1
         it "satisfies propValidBalancesChain2" propValidBalancesChain2
+    describe "cutPrefix" $ do
+        it "satisfies propCutPrefix1" propCutPrefix1
+        it "satisfies propCutPrefix2" propCutPrefix2
+        it "satisfies propCutPrefix3" propCutPrefix3
+        it "satisfies propCutPrefix4" propCutPrefix4
