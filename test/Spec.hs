@@ -43,6 +43,28 @@ main = hspec $ do
         it "satisfies propCommonPrefix3" propCommonPrefix3
         it "satisfies propCommonPrefix4" propCommonPrefix4
         it "satisfies propCommonPrefix5" propCommonPrefix5
+    describe "hasBlockProp" $ do
+        it "satisfies propHasBlockProp1" propHasBlockProp1
+        it "satisfies propHasBlockProp2" propHasBlockProp2
+    describe "hasBlock" $ do
+        it "satisfies propHasBlock1" propHasBlock1
+        it "satisfies propHasBlock2" propHasBlock2
+    describe "hasUniqueBlocks" $ do
+        it "satisfies propUniqueBlocks1" propUniqueBlocks1
+        it "satisfies propUniqueBlocks2" propUniqueBlocks2
+        it "satisfies propUniqueBlocks3" propUniqueBlocks3
+        it "satisfies propUniqueBlocks4" propUniqueBlocks4
+    describe "allBlockProp" $ do
+        it "satisfies propAllBlockProp1" propAllBlockProp1
+        it "satisfies propAllBlockProp2" propAllBlockProp2
+        it "satisfies propAllBlockProp3" propAllBlockProp3
+    describe "maxChains" $ do
+        it "satisfies propMaxChains1" propMaxChains1
+        it "satisfies propMaxChains2" propMaxChains2
+    describe "longestCommonPrefix" $ do
+        it "satisfies propLongestCommonPrefix1" propLongestCommonPrefix1
+        it "satisfies propLongestCommonPrefix2" propLongestCommonPrefix2
+        it "satisfies propLongestCommonPrefix3" propLongestCommonPrefix3
     describe "balancesChain" $ do
         it "satisfies propBalancesChain1" propBalancesChain1
         it "satisfies propBalancesChain2" propBalancesChain2
@@ -53,6 +75,17 @@ main = hspec $ do
     describe "validBalancesChain" $ do
         it "satisfies propValidBalancesChain1" propValidBalancesChain1
         it "satisfies propValidBalancesChain2" propValidBalancesChain2
+    describe "shortenWhile" $ do
+        it "satisfies propShortenWhile1" propShortenWhile1
+        it "satisfies propShortenWhile2" propShortenWhile2
+    describe "build" $ do
+        it "satisfies propBuild1" propBuild1
+        it "satisfies propBuild2" propBuild2
+        it "satisfies propBuild3" propBuild3
+    describe "replicateChain" $ do
+        it "satisfies propReplicateChain1" propReplicateChain1
+        it "satisfies propReplicateChain2" propReplicateChain2
+        it "satisfies propReplicateChain3" propReplicateChain3
     describe "cutPrefix" $ do
         it "satisfies propCutPrefix1" propCutPrefix1
         it "satisfies propCutPrefix2" propCutPrefix2

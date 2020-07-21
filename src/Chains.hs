@@ -261,12 +261,24 @@ propCommonPrefix5 =
 hasBlockProp :: (txs -> Bool) -> Chain txs -> Bool
 hasBlockProp = error "TODO: implement hasBlockProp"
 
+propHasBlockProp1 :: Bool
+propHasBlockProp1 = hasBlockProp even chain3
+
+propHasBlockProp2 :: Bool
+propHasBlockProp2 = not (hasBlockProp odd chain2)
+
 -- Task Chains-10.
 --
 -- Reimplement hasBlock in terms of hasBlockProp.
 
 hasBlock :: Eq txs => txs -> Chain txs -> Bool
 hasBlock = error "TODO: implement hasBlock"
+
+propHasBlock1 :: Bool
+propHasBlock1 = hasBlock 8 chain4
+
+propHasBlock2 :: Bool
+propHasBlock2 = not (hasBlock 8 chain5)
 
 -- Task Chains-11.
 --
@@ -276,6 +288,18 @@ hasBlock = error "TODO: implement hasBlock"
 uniqueBlocks :: Eq txs => Chain txs -> Bool
 uniqueBlocks = error "TODO: implement uniqueBlocks"
 
+propUniqueBlocks1 :: Bool
+propUniqueBlocks1 = uniqueBlocks (GenesisBlock :: Chain Int)
+
+propUniqueBlocks2 :: Bool
+propUniqueBlocks2 = uniqueBlocks chain1
+
+propUniqueBlocks3 :: Bool
+propUniqueBlocks3 = uniqueBlocks chain6
+
+propUniqueBlocks4 :: Bool
+propUniqueBlocks4 = not (uniqueBlocks (Block chain2 2))
+
 -- Task Chains-12.
 --
 -- Check whether all blocks in the given chain have
@@ -283,6 +307,15 @@ uniqueBlocks = error "TODO: implement uniqueBlocks"
 
 allBlockProp :: (txs -> Bool) -> Chain txs -> Bool
 allBlockProp = error "TODO: implement allBlockProp"
+
+propAllBlockProp1 :: Bool
+propAllBlockProp1 = allBlockProp (== 'x') GenesisBlock
+
+propAllBlockProp2 :: Bool
+propAllBlockProp2 = allBlockProp even chain2
+
+propAllBlockProp3 :: Bool
+propAllBlockProp3 = not (allBlockProp even chain3)
 
 -- Task Chains-13.
 --
@@ -292,6 +325,12 @@ allBlockProp = error "TODO: implement allBlockProp"
 maxChains :: [Chain txs] -> Int
 maxChains = error "TODO: implement maxChains"
 
+propMaxChains1 :: Bool
+propMaxChains1 = maxChains [] == 0
+
+propMaxChains2 :: Bool
+propMaxChains2 = maxChains [chain1, chain2, chain3] == 3
+
 -- Task Chains-14.
 --
 -- Given a non-empty list of chains, determine the longest
@@ -300,6 +339,15 @@ maxChains = error "TODO: implement maxChains"
 
 longestCommonPrefix :: Eq txs => Chain txs -> [Chain txs] -> Chain txs
 longestCommonPrefix = error "TODO: implement longestCommonPrefix"
+
+propLongestCommonPrefix1 :: Bool
+propLongestCommonPrefix1 = longestCommonPrefix chain4 [] == chain4
+
+propLongestCommonPrefix2 :: Bool
+propLongestCommonPrefix2 = longestCommonPrefix chain2 [chain3] == chain1
+
+propLongestCommonPrefix3 :: Bool
+propLongestCommonPrefix3 = longestCommonPrefix chain6 [chain5, chain5] == chain5
 
 -- Task Chains-15.
 --
@@ -384,12 +432,27 @@ propValidBalancesChain3 = and [ propValidBalancesChain1
 shortenWhile :: (txs -> Bool) -> Chain txs -> Chain txs
 shortenWhile = error "TODO: implement shortenWhile"
 
+propShortenWhile1 :: Bool
+propShortenWhile1 = shortenWhile even chain2 == GenesisBlock
+
+propShortenWhile2 :: Bool
+propShortenWhile2 = shortenWhile (> 3) chain2 == chain1
+
 -- Task Chains-18.
 --
 -- Reimplement the function 'build' from the slides.
 
 build :: Int -> Chain Int
 build = error "TODO: implement build"
+
+propBuild1 :: Bool
+propBuild1 = lengthChain (build 1000) == 1000
+
+propBuild2 :: Bool
+propBuild2 = build (-5) == GenesisBlock
+
+propBuild3 :: Bool
+propBuild3 = build 3 == GenesisBlock |> 1 |> 2 |> 3
 
 -- Task Chains-19.
 --
@@ -401,6 +464,15 @@ build = error "TODO: implement build"
 
 replicateChain :: Int -> txs -> Chain txs
 replicateChain = error "TODO: implement replicateChain"
+
+propReplicateChain1 :: Bool
+propReplicateChain1 = replicateChain (-7) 'x' == GenesisBlock
+
+propReplicateChain2 :: Bool
+propReplicateChain2 = replicateChain 1 2 == chain1
+
+propReplicateChain3 :: Bool
+propReplicateChain3 = replicateChain 3 'x' == GenesisBlock |> 'x' |> 'x' |> 'x'
 
 -- Task Chains-20.
 --
