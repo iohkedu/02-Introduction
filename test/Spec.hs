@@ -1,6 +1,6 @@
-import Test.Hspec
+import           Test.Hspec
 
-import Chains
+import           Chains
 
 main :: IO ()
 main = hspec $ do
