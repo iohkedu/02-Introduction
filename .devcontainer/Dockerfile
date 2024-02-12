@@ -32,18 +32,18 @@ RUN apt-get update -y && apt-get install -y \
 FROM system_deps as haskell
 
 # haskell args
-ARG CABAL_VERSION=3.6.2.0
-ARG GHC_VERSION=9.2.5
-ARG HLS_VERSION=1.9.1.0
+ARG CABAL_VERSION=3.10.2.1
+ARG GHC_VERSION=9.6.3
+ARG HLS_VERSION=2.5.0.0
 
 
 # install ghcup
 ENV PATH=${PATH}:${HOME:-/root}/.ghcup/bin
 RUN wget --secure-protocol=TLSv1_2 \
-  https://downloads.haskell.org/~ghcup/$(arch)-linux-ghcup  \ 
+  https://downloads.haskell.org/~ghcup/$(arch)-linux-ghcup  \
   && chmod +x $(arch)-linux-ghcup \
   && mkdir -p ${HOME:-/root}/.ghcup/bin \
-  && mv $(arch)-linux-ghcup ${HOME:-/root}/.ghcup/bin/ghcup 
+  && mv $(arch)-linux-ghcup ${HOME:-/root}/.ghcup/bin/ghcup
 
 # install ghc, caball, and hls
 RUN ghcup config set downloader Wget \
