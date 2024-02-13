@@ -130,9 +130,9 @@ propLongerChain4 = longerChain chain3 chain4 == chain3
 
 propLongerChain5 :: Bool
 propLongerChain5 = and [ propLongerChain1
-                       , propLengthChain2
-                       , propLengthChain3
-                       , propLengthChain4
+                       , propLongerChain2
+                       , propLongerChain3
+                       , propLongerChain4
                        ]
 
 -- Task Chains-5.
