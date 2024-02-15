@@ -11,7 +11,7 @@
         "vigoo.stylish-haskell"
       ],
       "settings": {
-        "haskell.formattingProvider": "stylish-haskell"
+        "stylishHaskell.commandLine": "/root/.local/bin/stylish-haskell"
       }
     }
   }
